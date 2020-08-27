@@ -4,16 +4,17 @@
   "description": "Projeto backend do Senai OverFlow",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/server.js",
+    "dev": "nodemon src/serve.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Guilherme",
+  "author": "Cleyson Aparecido",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "jsonfile": "^6.0.1",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.1.0",
     "sequelize": "^6.3.4",

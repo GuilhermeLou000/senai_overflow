@@ -1,9 +1,9 @@
-//esse arquivo tem como responsabilidade cadastrar as rotas da aplicação
+
 
 const express = require("express");
 const { route } = require("./app");
 
-//criando o routerizador
+//criando o roterizador
 const routes = express.Router();
 
 const autorizacaoMid = require("./middlewares/autorizacao");
@@ -13,22 +13,23 @@ const postagemController = require("./controllers/postagem");
 const comentarioController = require("./controllers/comentario");
 const sessaoController = require("./controllers/sessao");
 
-//rotas publicas
+// Rota publica
 routes.post("/sessao", sessaoController.store);
-
-
-//middleware de proteção das rotas
-routes.use(autorizacaoMid);
-
-//rotas de usuário
-routes.get("/alunos", alunoController.listar);
-routes.get("/alunos/:id", alunoController.buscarPorId);
 routes.post("/alunos", alunoController.store);
 
-//rotas de postagens
-routes.get("/postagens", postagemController.index);
+//middleware de proterção das rotas
+routes.use(autorizacaoMid);
+
+
+//Rotas de usuarios
+routes.get("/alunos", alunoController.listar);
+routes.get("/alunos/:id", alunoController.buscarPorId);
+
+
+//Rotas de postagem
 routes.post("/postagens", postagemController.store);
 routes.delete("/postagens/:id", postagemController.delete);
+routes.get("/postagens", postagemController.index);
 
 //rotas de comentarios
 routes.get("/postagens/:postId/comentarios", comentarioController.index);
